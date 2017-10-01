@@ -1,0 +1,19 @@
+compile:
+javac -d bin/testmodule \
+	src/firstmodule/com/ingg/testmodule/*.java \
+	src/testmodule/module-info.java
+
+
+pack:
+jar -cfe lib/firstmodule.jar com.ingg.firstmodule.FirstModule -C bin/testmodule .
+
+
+run from files:
+java --module-path bin --module firstmodule/com.ingg.firstmodule.FirstModule
+or
+java -p bin -m first/com.ingg.firstmodule.FirstModule
+
+run from jar:
+java --module-path lib --module firstmodule
+or
+java -p lib -m firstmodule 
